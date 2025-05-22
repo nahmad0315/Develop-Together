@@ -1,0 +1,3 @@
+# Ignore token and sensitive files
+*.pickle
+token.pickle
