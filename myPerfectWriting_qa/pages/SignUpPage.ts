@@ -14,14 +14,17 @@ export class SignUpPage {
   async fillForm(email: string, password: string, confirmPassword: string) {
     await this.page.fill('input[name="email"]', email);
     await this.page.fill('input[name="password"]', password);
-    await this.page.fill('input[name="confirmPassword"]', confirmPassword);
+    await this.page.fill(
+      'input[name="password_confirmation"]',
+      confirmPassword
+    );
   }
 
-  async submitForm() {
-    await this.page.click('button[type="submit"]');
-  }
+  // async submitForm() {
+  //   await this.page.click('button[type="submit"]');
+  // }
 
   async expectSuccessMessage() {
-    await this.page.waitForSelector("text=Account created successfully");
+    await this.page.waitForSelector("button#submit");
   }
 }

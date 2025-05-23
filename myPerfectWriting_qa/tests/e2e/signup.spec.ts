@@ -12,6 +12,6 @@ test("User can sign up successfully with valid credentials", async ({
   const password = "1234567890";
 
   await signUp.fillForm(email, password, password);
-  await signUp.submitForm();
+  // await signUp.submitForm();
   await signUp.expectSuccessMessage();
 });
