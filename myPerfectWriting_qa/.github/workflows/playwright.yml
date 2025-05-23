@@ -24,16 +24,16 @@ jobs:
           node-version: "20"
 
       - name: Show current working directory
-        run: pwd
+        run: cd myPerfectWriting && pwd
 
       - name: Install dependencies
-        run: npm install
+        run: cd myPerfectWriting_qa && npm install
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: cd myPerfectWriting && npx playwright install --with-deps
 
       - name: Run Playwright Tests
-        run: npx playwright test --reporter=html --output=test-reports
+        run: cd myPerfectWriting && npx playwright test --reporter=html --output=test-reports
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
