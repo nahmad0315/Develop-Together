@@ -27,8 +27,10 @@ jobs:
       - name: Install dependencies
         run: cd myPerfectWriting_qa && npm install
 
-      - name: Install Playwright Browsers
-        run: cd myPerfectWriting_qa && npx playwright install --with-deps
+      - name: Install Playwright and Browsers
+        run: |
+          cd myPerfectWriting_qa
+          npx playwright install --with-deps
 
       - name: Run Playwright Tests
         run: cd myPerfectWriting_qa && npx playwright test --reporter=html --output=test-reports
