@@ -15,7 +15,7 @@ export class SignUpPage {
     this.confirmPasswordInput = page.getByTestId(
       "signup-confirm-password-input"
     );
-    this.signUpButton = page.getByTestId("signup-submit-button");
+    this.signUpButton = page.getByTestId("signup-submit-btn");
     this.googleSignUpButton = page.getByTestId("signup-google-button");
     this.signUpErrorMessage = page.getByTestId("signup-error-message");
   }
