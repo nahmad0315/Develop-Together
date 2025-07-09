@@ -8,8 +8,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: "https://portal.myperfectwriting.co.uk", // ✅ FIXED: Base domain only
-    trace: "on-first-retry",
+    baseURL: "https://portal.myperfectwriting.co.uk",
+    screenshot: "only-on-failure",
+    video: "on",
+    trace: "retain-on-failure",
+    // Set default timeout for actions
+    actionTimeout: 10000,
+    navigationTimeout: 30000,
   },
 
   projects: [
