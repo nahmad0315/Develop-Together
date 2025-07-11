@@ -46,7 +46,7 @@ test("TC-SU-01 - Full signup + email verification + login flow", async ({
   await login(page, email, password);
 });
 
-test("TC02 - Signup with Already Registered Email", async ({ page }) => {
+test("TC-SU-02 - Signup with Already Registered Email", async ({ page }) => {
   const email = `dtdeveloperwork@gmail.com`; // Use the same email for signup again
   const password = "12345678";
 
@@ -60,8 +60,8 @@ test("TC02 - Signup with Already Registered Email", async ({ page }) => {
   await expect(toast).toBeVisible();
 });
 
-// TC03 - Signup with invalid email format
-test("TC03 - Signup with invalid email format", async ({ page }) => {
+// TC-SU-03 - Signup with invalid email format
+test("TC-SU-03 - Signup with invalid email format", async ({ page }) => {
   const signUpPage = new SignUpPage(page);
   const email = "invalid-email";
   const password = "123456789";
@@ -81,8 +81,10 @@ test("TC03 - Signup with invalid email format", async ({ page }) => {
   expect(urlAfter).toBe(urlBefore);
 });
 
-// TC04 - Signup with password less than 8 characters
-test("TC04 - Signup with password less than 8 characters", async ({ page }) => {
+// TC-SU-04 - Signup with password less than 8 characters
+test("TC-SU-04 - Signup with password less than 8 characters", async ({
+  page,
+}) => {
   const email = `weakpass${Date.now()}@gmail.com`;
   const password = "1234567";
   await signup(page, email, password, false);
@@ -94,8 +96,8 @@ test("TC04 - Signup with password less than 8 characters", async ({ page }) => {
   await expect(toast).toBeVisible();
 });
 
-// TC05 - Signup with mismatched passwords
-test("TC05 - Signup with mismatched passwords", async ({ page }) => {
+// TC-SU-05 - Signup with mismatched passwords
+test("TC-SU-05 - Signup with mismatched passwords", async ({ page }) => {
   const email = `mismatch${Date.now()}@gmail.com`;
   const password = "123456789";
   const confirmPassword = "987654321";
@@ -107,8 +109,8 @@ test("TC05 - Signup with mismatched passwords", async ({ page }) => {
   await expect(toast).toBeVisible();
 });
 
-// TC06 - Signup with empty fields
-test("TC06 - Signup with empty fields", async ({ page }) => {
+// TC-SU-06 - Signup with empty fields
+test("TC-SU-06 - Signup with empty fields", async ({ page }) => {
   const signUpPage = new SignUpPage(page);
   await signUpPage.navigateToSignUp();
   await signUpPage.submitForm();

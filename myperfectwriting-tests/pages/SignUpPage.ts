@@ -18,6 +18,9 @@ export class SignUpPage {
     this.signUpButton = page.getByTestId("signup-submit-btn");
     this.googleSignUpButton = page.getByTestId("signup-google-button");
     this.signUpErrorMessage = page.getByTestId("signup-error-message");
+    this.googleSignUpButton = page.getByRole("button", {
+      name: /sign (in|up).*google/i,
+    });
   }
   async navigateToSignUp() {
     await this.page.goto("/sign-up");
