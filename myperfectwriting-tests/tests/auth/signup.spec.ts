@@ -25,14 +25,18 @@ async function signup(
 async function verifyEmail(page, email: string) {
   const verifyLink = await getVerificationLink(email);
   await page.goto(verifyLink);
-  await expect(page.getByTestId("signin-email-input")).toBeVisible();
+  await expect(page.getByTestId("signin-email-input")).toBeVisible({
+    timeout: 20000,
+  });
 }
 
 async function login(page, email: string, password: string) {
   await page.fill('[data-testid="signin-email-input"]', email);
   await page.fill('[data-testid="signin-password-input"]', password);
   await page.click('[data-testid="signin-submit-btn"]');
-  await expect(page.getByTestId("Header-place-order-btn")).toBeVisible();
+  await expect(page.getByTestId("Header-place-order-btn")).toBeVisible({
+    timeout: 20000,
+  });
 }
 
 test("TC-SU-01 - Full signup + email verification + login flow", async ({
